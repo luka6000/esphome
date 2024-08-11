@@ -1,6 +1,7 @@
 #include <memory>
 
 #include "pn532.h"
+#include "esphome/core/application.h"
 #include "esphome/core/log.h"
 
 namespace esphome {
@@ -185,6 +186,7 @@ bool PN532::write_mifare_ultralight_page_(uint8_t page_num, std::vector<uint8_t>
     return false;
   }
 
+  App.feed_wdt();
   return true;
 }
 
